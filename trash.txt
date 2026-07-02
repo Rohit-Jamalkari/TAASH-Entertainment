@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Taash Entertainment Journal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+</head>
+<body>
+
+
+
+
+
+<!-- The scroll track that defines the length of the tunnel journey -->
+<div class="tunnel-container">
+  <!-- The fixed viewport frame where the 3D space lives -->
+  <div class="tunnel-view">
+    <!-- Tunnel Rings staggered with custom inline CSS variables -->
+    <div class="ring" style="--index: 1;"><span></span></div>
+    <div class="ring" style="--index: 2;"><span></span></div>
+    <div class="ring" style="--index: 3;"><span></span></div>
+    <div class="ring" style="--index: 4;"><span></span></div>
+    <div class="ring" style="--index: 5;"><span></span></div>
+    <div class="ring" style="--index: 6;"><span></span></div>
+    <div class="ring" style="--index: 7;"><span></span></div>
+    <div class="ring" style="--index: 8;"><span></span></div>
+    <div class="ring" style="--index: 9;"><span></span></div>
+    <div class="ring" style="--index: 10;"><span></span></div>
+    <div class="ring" style="--index: 11;"><span></span></div>
+    <div class="ring" style="--index: 12;"><span></span></div>
+    <div class="ring" style="--index: 13;"><span></span></div>
+    <div class="ring" style="--index: 14;"><span></span></div>
+    <div class="ring" style="--index: 15;"><span></span></div>
+    <div class="ring" style="--index: 16;"><span></span></div>
+    <div class="ring" style="--index: 17;"><span></span></div>
+    <div class="ring" style="--index: 18;"><span></span></div>
+    <div class="ring" style="--index: 19;"><span></span></div>
+    <div class="ring" style="--index: 20;"><span></span></div>
+    <div class="ring" style="--index: 21;"><span></span></div>
+    <div class="ring" style="--index: 22;"><span></span></div>
+    <div class="ring" style="--index: 23;"><span></span></div>
+    <div class="ring" style="--index: 24;"><span></span></div>
+    <div class="ring" style="--index: 25;"><span></span></div>
+    <div class="ring" style="--index: 26;"><span></span></div>
+    <div class="ring" style="--index: 27;"><span></span></div>
+    <div class="ring" style="--index: 28;"><span>We Don't Design <br> We Connect</span></div>
+  </div>
+</div>
+<section class="content-after-tunnel">
+  <div class="price-perspective-wrapper">
+    <div class="price-move">
+      <h1 class="price-header">OUR SERVICES</h1>
+      <div class="price-item"><span>VIDEO EDITING</span></div>
+      <div class="price-item"><span>WEBSITE DESIGN</span></div>
+      <div class="price-item"><span>GRAPHIC DESIGN</span></div>
+      <div class="price-item"><span>BRANDING</span></div>
+      <div class="price-item"><span>MARKETING</span></div>
+      <div class="price-item"><span>PROMOTIONAL</span></div>
+      </div>
+  </div>
+</section>
+
+<script src="main.js"></script>
+</body>
+</html>
+
+
+
+
+
+/* ================= BASE ================= */
+
+body {
+  margin: 0;
+  background: #050505;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ================= TUNNEL ================= */
+
+.tunnel-container {
+  height: 900vh;
+}
+
+.tunnel-view {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+
+/* ================= RINGS ================= */
+
+.ring {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  animation: flyThrough linear both;
+  animation-timeline: scroll(root block);
+  animation-range:
+    calc((var(--index) - 1) * 1%)
+    calc((var(--index) - 1) * 1% + 20%);
+}
+
+.ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #F6839C;
+  clip-path: polygon(
+    50% 0%, 75% 6.7%, 93.3% 25%, 100% 50%, 93.3% 75%, 75% 93.3%,
+    50% 100%, 25% 93.3%, 6.7% 75%, 0% 50%, 6.7% 25%, 25% 6.7%
+  );
+}
+
+.ring::after {
+  content: "";
+  position: absolute;
+  inset: 300px; /* Adjust as needed */
+  background: #050505;
+  clip-path: polygon(
+    50% 0%, 75% 6.7%, 93.3% 25%, 100% 50%, 93.3% 75%, 75% 93.3%,
+    50% 100%, 25% 93.3%, 6.7% 75%, 0% 50%, 6.7% 25%, 25% 6.7%
+  );
+}
+
+.ring span {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.ring:nth-child(even)::before {
+  background: #fde7af;
+}
+
+.ring:nth-child(even)::after {
+  background: #050505;
+}
+
+.ring:nth-child(even) {
+  color: #fde7af;
+}
+
+
+
+@keyframes flyThrough {
+  0% {
+    opacity: 0;
+    transform: translateZ(-2000px) rotate(0deg);
+  }
+
+  15%,
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateZ(800px) rotate(45deg);
+  }
+}
+
+/* ================= CONTENT AFTER TUNNEL ================= */
+
+.content-after-tunnel {
+  min-height: 100vh;
+  background: #050505;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* Parent providing 3D perspective */
+.price-perspective-wrapper {
+  width: 100%;
+  max-width: 800px;
+  transform-style: preserve-3d;
+}
+
+/* Animated container */
+.price-move {
+  transform-style: preserve-3d;
+  animation: floatIn linear forwards;
+  animation-timeline: scroll(root block);
+  animation-range: 60% 90%;
+}
+
+.price-header{
+    font-size: 4.5rem;
+    font-family: Source Code Pro, monospace;
+}
+
+/* Price items */
+.price-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  padding: 30px 0;
+  border-bottom: 1px solid #333;
+
+  color: #fff;
+  font-size: 3.5rem;
+  font-family: sans-serif;
+
+  backface-visibility: hidden;
+}
+
+.price-move {
+  transform-style: preserve-3d;
+
+  animation: floatIn linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 60%;
+}
+
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform-origin: center bottom;
+    transform:
+      rotateX(30deg)
+      translateY(0px)
+      translateZ(150px)
+      translateY(150px)
+      scale(1.4);
+  }
+
+  to {
+    opacity: 1;
+    transform-origin: center bottom;
+    transform:
+      rotateX(48deg)
+      translateX(0) 
+      translateZ(-500px)
+      translateY(-600px)
+      scale(3);
+  }
+}
+
+/* 
+@keyframes roadMove {
+  from {
+    transform:
+      translateZ(1200px)
+      translateY(500px);
+  }
+
+  to {
+    transform:
+      translateZ(-3500px)
+      translateY(-1500px);
+  }
+} */
+
+
+
+
+
+
+
+
+working video
+
+
+<!-- <div class="video-wrap">
+    <video id="introVideo" muted loop playsinline>
+      <source src="assets/intro.mp4" type="video/mp4">
+    </video>
+  </div> -->
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const videoWrap = document.querySelector('.video-wrap');
+  const video = document.getElementById('introVideo');
+  const toggleBtn = document.getElementById('soundToggle');
+  const iconMuted = toggleBtn.querySelector('.icon-muted');
+  const iconUnmuted = toggleBtn.querySelector('.icon-unmuted');
+
+  function updateIcons() {
+    iconMuted.style.display = video.muted ? 'block' : 'none';
+    iconUnmuted.style.display = video.muted ? 'none' : 'block';
+    toggleBtn.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
+  }
+
+  // make sure it actually starts playing (muted, so autoplay is allowed)
+  video.play().catch((err) => {
+    console.warn('Autoplay was blocked:', err);
+  });
+
+  // manual toggle button
+  toggleBtn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    updateIcons();
+  });
+
+  // auto-mute once the video section leaves the viewport
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          video.muted = true;
+          updateIcons();
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(videoWrap);
+
+  // set initial icon state on page load
+  updateIcons();
+});

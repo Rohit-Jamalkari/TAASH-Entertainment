@@ -1,0 +1,455 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#F1F1F1;
+  color:#2D2D2D;
+}
+
+/* Fonts */
+h1,h2{
+  font-family:'Bebas Neue',sans-serif;
+}
+
+
+#Who {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12vw;
+}
+
+p,a{
+  font-family:'Space Mono',monospace;
+}
+
+/* Header */
+
+header{
+  width:90%;
+  margin:auto;
+  padding:40px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.logo{
+  font-family:'Bebas Neue';
+  font-size:40px;
+}
+
+nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:90px;
+}
+
+nav a{
+  text-decoration: none;
+  color: #5B5B5B;
+  font-family: 'Cutive Mono';
+  font-size: 22px;
+  display: inline-block;
+  min-width: max-content;
+}
+
+/* Hero */
+
+.hero{
+  min-height:70vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.hero h1{
+  font-size:120px;
+  line-height:1;
+}
+
+.hero p{
+  margin-top:30px;
+  max-width:700px;
+  font-size:22px;
+}
+
+/* About */
+
+.about{
+  width:90%;
+  margin: 0 auto 120px;
+}
+
+.about h2{
+  font-size:70px;
+  color:#E1AD01;
+  margin-bottom:30px;
+}
+
+.about p{
+  font-size:22px;
+  line-height:40px;
+}
+
+.cards{
+  margin-top:60px;
+  display:flex;
+  gap:-30px;
+}
+
+.card{
+  flex:3;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+}
+
+.box{
+  height:200px;
+  border-radius:20px;
+}
+
+.green{
+  background:#363F2A;
+}
+
+.pink{
+  background:#E7899C;
+}
+
+.card h3{
+  margin-top:20px;
+  font-family:'Space Mono';
+}
+
+/* Services */
+
+.services{
+  width:90%;
+  margin:100px auto;
+}
+
+.service{
+  display:flex;
+  align-items:center;
+  gap:50px;
+  padding:30px;
+  border-radius:30px;
+  margin-bottom:30px;
+}
+
+.service span{
+  font-size:100px;
+  font-family:'Bebas Neue';
+}
+
+.service h2{
+  font-size:80px;
+}
+
+.service.black{
+  background:#ffffff;
+}
+
+.service.pink{
+  background:#E7B7B4;
+}
+
+.service.green{
+  background:#ABB192;
+}
+
+.service.rose{
+  background:#E7899C;
+}
+
+.service.blue{
+  background:#96B8D3;
+}
+
+/* Stats */
+
+.stats{
+  background:#313131;
+  color:white;
+  padding:100px 5%;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.stat-card{
+  text-align:center;
+}
+
+.stat-card h2{
+  font-size:120px;
+}
+
+.stat-card p{
+  font-size:20px;
+}
+
+/* Portfolio */
+
+.portfolio{
+  width:90%;
+  margin:120px auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+}
+
+.portfolio-text h2{
+  font-size:70px;
+  margin-bottom:30px;
+}
+
+.portfolio-text p{
+  font-size:24px;
+  line-height:40px;
+}
+
+.portfolio-image{
+  height:500px;
+  background:#d9d9d9;
+  border-radius:30px;
+}
+
+/* Footer */
+
+footer{
+  background:#313131;
+  color:#F1F1F1;
+  padding:100px 5%;
+  margin-top:100px;
+}
+
+footer h1{
+  font-size:120px;
+  margin-bottom:50px;
+}
+
+.footer-links{
+  display:flex;
+  gap:40px;
+  margin-bottom:40px;
+}
+
+.footer-links a{
+  color:white;
+  text-decoration:none;
+  font-family:'Cutive Mono';
+  font-size:22px;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+  nav{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:70px;
+  }
+
+  .cards,
+  .portfolio,
+  .stats{
+    grid-template-columns:1fr;
+    display:grid;
+  }
+
+  .service{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .service h2{
+    font-size:45px;
+  }
+
+  footer h1{
+    font-size:60px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+/*  <----------------- Animation -----------------> */
+/* ================= TUNNEL ================= */
+
+.tunnel-container {
+  height: 180vh;
+}
+
+.tunnel-view {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+
+/* ================= RINGS ================= */
+
+.ring {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  animation: flyThrough linear both;
+  animation-timeline: scroll(root block);
+  animation-range:
+    calc((var(--index) - 1) * 1%)
+    calc((var(--index) - 1) * 1% + 20%);
+}
+
+.ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #F6839C;
+  clip-path: polygon(
+    50% 0%, 75% 6.7%, 93.3% 25%, 100% 50%, 93.3% 75%, 75% 93.3%,
+    50% 100%, 25% 93.3%, 6.7% 75%, 0% 50%, 6.7% 25%, 25% 6.7%
+  );
+}
+
+.ring::after {
+  content: "";
+  position: absolute;
+  inset: 300px; /* Adjust as needed */
+  background: #050505;
+  clip-path: polygon(
+    50% 0%, 75% 6.7%, 93.3% 25%, 100% 50%, 93.3% 75%, 75% 93.3%,
+    50% 100%, 25% 93.3%, 6.7% 75%, 0% 50%, 6.7% 25%, 25% 6.7%
+  );
+}
+
+.ring span {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.ring:nth-child(even)::before {
+  background: #fde7af;
+}
+
+.ring:nth-child(even)::after {
+  background: #F6839C;
+}
+
+.ring:nth-child(even) {
+  color: #fde7af;
+}
+
+
+
+@keyframes flyThrough {
+  0% {
+    opacity: 0;
+    transform: translateZ(-2000px) rotate(0deg);
+  }
+
+  15%,
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateZ(800px) rotate(30deg);
+  }
+}
+
+
+
+
+
+
+
+
+/* <----------------------- Video  -----------------------> */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* accounts for mobile browser address bar, overrides the line above in supporting browsers */
+  overflow: hidden;
+}
+
+.video-wrap video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.sound-toggle {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background .2s ease, transform .2s ease;
+  z-index: 1;
+}
+
+.sound-toggle:hover { background: rgba(0, 0, 0, 0.75); }
+.sound-toggle:active { transform: scale(0.92); }
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------- Our Services ----------------------------- */

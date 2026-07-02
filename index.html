@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAASH Entertainment</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cutive+Mono&family=Space+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="stylee.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+
+    <nav>
+      <a href="#">Index</a>
+      <a href="#">Studio</a>
+      <a href="#">Journal</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+
+  <div class="video-wrap">
+    <video id="introVideo" autoplay muted loop playsinline>
+      <source src="assets/Intro.mp4" type="video/mp4">
+    </video>
+
+    <button id="soundToggle" class="sound-toggle" aria-label="Unmute video">
+      <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20">
+        <path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/>
+        <line x1="16" y1="9" x2="21" y2="14" stroke="currentColor" stroke-width="2"/>
+        <line x1="21" y1="9" x2="16" y2="14" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" style="display:none">
+        <path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/>
+        <path d="M16 8a5 5 0 0 1 0 8" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M18.5 5.5a9 9 0 0 1 0 13" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- <div class="video-wrap">
+    <video id="introVideo" muted loop playsinline>
+      <source src="assets/intro.mp4" type="video/mp4">
+    </video>
+  </div> -->
+
+
+<!-- 
+  <section class="hero">
+    <h1>TAASH ENTERTAINMENT</h1>
+    <p>
+      Notice what people fail to see. We create brands,
+      experiences and digital stories that stand out.
+    </p>
+  </section> -->
+  
+<!-- The scroll track that defines the length of the tunnel journey -->
+  <div class="tunnel-container">
+    <!-- The fixed viewport frame where the 3D space lives -->
+    <div class="tunnel-view">
+      <!-- Tunnel Rings staggered with custom inline CSS variables -->
+      <div class="ring" style="--index: 1;"><span></span></div>
+      <div class="ring" style="--index: 2;"><span></span></div>
+      <div class="ring" style="--index: 3;"><span></span></div>
+      <div class="ring" style="--index: 4;"><span></span></div>
+      <div class="ring" style="--index: 5;"><span></span></div>
+      <div class="ring" style="--index: 6;"><span></span></div>
+      <div class="ring" style="--index: 7;"><span></span></div>
+      <div class="ring" style="--index: 8;"><span></span></div>
+      <div class="ring" style="--index: 9;"><span></span></div>
+      <div class="ring" style="--index: 10;"><span></span></div>
+      <div class="ring" style="--index: 11;"><span></span></div>
+      <div class="ring" style="--index: 12;"><span></span></div>
+      <div class="ring" style="--index: 13;"><span></span></div>
+      <div class="ring" style="--index: 14;"><span></span></div>
+      <div class="ring" style="--index: 15;"><span></span></div>
+      <div class="ring" style="--index: 16;"><span></span></div>
+      <div class="ring" style="--index: 17;"><span></span></div>
+      <div class="ring" style="--index: 18;"><span></span></div>
+      <div class="ring" style="--index: 19;"><span></span></div>
+      <div class="ring" style="--index: 20;"><span></span></div>
+      <div class="ring" style="--index: 21;"><span></span></div>
+      <div class="ring" style="--index: 22;"><span></span></div>
+      <div class="ring" style="--index: 23;"><span></span></div>
+      <div class="ring" style="--index: 24;"><span></span></div>
+      <div class="ring" style="--index: 25;"><span></span></div>
+      <div class="ring" style="--index: 26;"><span></span></div>
+      <div class="ring" style="--index: 27;"><span></span></div>
+      <div class="ring" style="--index: 28;"><span>We Don't Design <br> We Connect</span></div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="about">
+    <h2 id="Who">Who we are</h2>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <img src="assets/Casestudy.png" alt="My image">
+      </div>
+      <div class="card">
+        <img src="assets/Blogs.png" alt="My image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+    <section class="services">
+      <div class="Services">
+        <div class="service black">
+          <span>OUR SERVICES</span>
+        </div>
+
+        <div class="service pink">
+          <span>01</span>
+          <h2>BRANDING</h2>
+        </div>
+
+        <div class="service green">
+          <span>02</span>
+          <h2>SOCIAL MEDIA MARKETING</h2>
+        </div>
+
+        <div class="service rose">
+          <span>03</span>
+          <h2>GRAPHIC DESIGN</h2>
+        </div>
+
+        <div class="service blue">
+          <span>04</span>
+          <h2>WEB DESIGN</h2>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+
+      <div class="stat-card">
+        <h2>148+</h2>
+        <p>Projects Shipped</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>99%</h2>
+        <p>Client Satisfied</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>12k</h2>
+        <p>Hours of Craft</p>
+      </div>
+
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio">
+
+    <div class="portfolio-text">
+      <h2>Featured Project</h2>
+      <p>
+        Notice what people fail to see, we craft memorable
+        digital experiences and build brands that connect.
+      </p>
+    </div>
+
+    <div class="portfolio-image"></div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+
+    <h1>TAASH ENTERTAINMENT</h1>
+
+    <div class="footer-links">
+      <a href="#">Index</a>
+      <a href="#">Studio</a>
+      <a href="#">Journal</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <p>
+      quis nostrud exercitation ullamco laboris nisi.
+    </p>
+
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
