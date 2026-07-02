@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const iconMuted = toggleBtn.querySelector('.icon-muted');
   const iconUnmuted = toggleBtn.querySelector('.icon-unmuted');
 
-  let manuallyMuted = false; // true only when the USER clicked mute
+  let userWantsSound = false;
+  let autoMuted = false;
 
   function updateIcons() {
     iconMuted.style.display = video.muted ? 'block' : 'none';
@@ -17,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   toggleBtn.addEventListener('click', () => {
     video.muted = !video.muted;
-    manuallyMuted = video.muted; // remember the user's own choice
+    userWantsSound = !video.muted;
+    autoMuted = false;
+    video.play().catch((err) => console.warn('Play after toggle blocked:', err));
     updateIcons();
   });
 
@@ -25,11 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
-          // scrolled out — always mute, but don't touch manuallyMuted
-          video.muted = true;
-        } else if (!manuallyMuted) {
-          // scrolled back in — only restore sound if the user didn't mute it themselves
+          if (!video.muted) {
+            video.muted = true;
+            autoMuted = true;
+          }
+        } else if (autoMuted && userWantsSound) {
           video.muted = false;
+          autoMuted = false;
         }
         updateIcons();
       });
@@ -40,6 +45,3 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(videoWrap);
   updateIcons();
 });
-
-
-
